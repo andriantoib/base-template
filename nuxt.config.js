@@ -17,7 +17,11 @@ export default {
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       { rel: "dns-prefetch", href: "https://fonts.gstatic.com/" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com/", crossorigin:"true" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com/",
+        crossorigin: "true",
+      },
     ],
   },
 
@@ -37,13 +41,13 @@ export default {
     "@nuxtjs/imagemin",
     "@nuxtjs/google-fonts",
     "nuxt-purgecss",
-    "@aceforth/nuxt-optimized-images"
+    "@aceforth/nuxt-optimized-images",
   ],
   optimizedImages: {
-    optimizedImages: true
+    optimizedImages: true,
   },
   styleResources: {
-    scss: ["./assets/variables/*.scss", "./assets/mixins/*.scss"],
+    scss: ["./assets/variables/*.scss", "./assets/mixins/_mixins.scss"],
   },
   googleFonts: {
     display: "swap",
@@ -59,9 +63,27 @@ export default {
     "@nuxtjs/component-cache",
     "nuxt-precompress",
     "nuxt-speedkit",
-    '@nuxtjs/i18n',
+    "@nuxtjs/i18n",
     "@nuxtjs/sitemap", // PLACE THIS MODULE AT THE END OF THE ARRAY
   ],
+
+  i18n: {
+    defaultLocale: "en",
+    locales: [
+      {
+        code: "en",
+        name: "English",
+      },
+      {
+        code: "id",
+        name: "Indonesia",
+      },
+      {
+        code: "cn",
+        name: "Mandarin",
+      },
+    ],
+  },
 
   toast: {
     position: "top-right",
