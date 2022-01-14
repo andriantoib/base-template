@@ -32,13 +32,16 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    "@nuxtjs/svg-sprite",
     "@nuxt/image",
     "@nuxtjs/style-resources",
     "@nuxtjs/imagemin",
     "@nuxtjs/google-fonts",
     "nuxt-purgecss",
+    "@aceforth/nuxt-optimized-images"
   ],
+  optimizedImages: {
+    optimizedImages: true
+  },
   styleResources: {
     scss: ["./assets/variables/*.scss", "./assets/mixins/*.scss"],
   },
