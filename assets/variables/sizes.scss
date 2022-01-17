@@ -1,0 +1,17 @@
+@import "./colors.scss";
+
+$navHeight: 65px;
+
+$buttonHeight: 52px;
+$buttonPadding: 0em 1.5em;
+$buttonTextSize: 21px;
+$buttonTextWeight: 600;
+$basePadding: 3rem 0rem;
+
+.header-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 31px;
+  font-weight: 600;
+}

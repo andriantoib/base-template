@@ -1,0 +1,48 @@
+@import './sizes.scss';
+@import './colors.scss';
+
+.btn {
+  height: $buttonHeight;
+  padding: $buttonPadding;
+  font-weight: $buttonTextWeight;
+  font-size: $buttonTextSize;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  text-decoration: none !important;
+
+  &--primary {
+    background: $primary;
+    color: #fff;
+    &:hover {
+      color: $primary;
+      background: #fff;
+    }
+    &:active {
+      color: $primary !important;
+      background-color: #fff !important;
+      border: none !important;
+    }
+  }
+  &--outline {
+    background: none;
+    border: 2px solid #fff;
+    color: #fff;
+    &:hover {
+      color: $primary;
+      background: #fff;
+    }
+  }
+  &--text {
+    background: none;
+    color: white;
+    &:hover {
+      color: $primary;
+    }
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}

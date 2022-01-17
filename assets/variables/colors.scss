@@ -1,0 +1,10 @@
+$color-primary: #ff6b6b;
+$dark-accent: #ca454c;
+$dark-shade: #43445a;
+$light-accent: #90a6b5;
+$light-shade: #f8f9f8;
+
+$primary: #ff6b6b;
+$primary-light: findLightColor($primary);
+$primary-dark: findDarkColor($primary);
+$primary-invert: findColorInvert($primary);

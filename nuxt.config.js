@@ -26,10 +26,15 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ["~/assets/scss/main.scss"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    {
+      src: "~/plugins/vue-awesome-swiper.js",
+      mode: "client",
+    },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: false,
@@ -47,7 +52,7 @@ export default {
     optimizedImages: true,
   },
   styleResources: {
-    scss: ["./assets/variables/*.scss", "./assets/mixins/_mixins.scss"],
+    scss: ["./assets/variables/*.scss", "./assets/abstracts/_mixins.scss"],
   },
   googleFonts: {
     display: "swap",
@@ -64,8 +69,22 @@ export default {
     "nuxt-precompress",
     "nuxt-speedkit",
     "@nuxtjs/i18n",
+    "bootstrap-vue/nuxt",
+    "@nuxtjs/strapi",
     "@nuxtjs/sitemap", // PLACE THIS MODULE AT THE END OF THE ARRAY
   ],
+
+  strapi: {
+    url: process.env.STRAPI_URL || "https://cms.qoligo.com/",
+    entities: [
+      'carousels'
+    ]
+  },
+
+  bootstrapVue: {
+    bootstrapCSS: false,
+    bootstrapVueCSS: false,
+  },
 
   i18n: {
     defaultLocale: "en",
@@ -78,10 +97,10 @@ export default {
         code: "id",
         name: "Indonesia",
       },
-      {
-        code: "cn",
-        name: "Mandarin",
-      },
+      // {
+      //   code: "cn",
+      //   name: "Mandarin",
+      // },
     ],
   },
 
