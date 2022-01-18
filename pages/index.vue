@@ -1,41 +1,51 @@
 <template>
   <b-container>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem repellendus
-    incidunt dolorem blanditiis aspernatur cum laborum, quaerat totam saepe
-    magnam, facere voluptate veniam, tempora nobis qui asperiores nihil quos
-    excepturi voluptatem. Consequatur sed quisquam corporis numquam, tenetur
-    dolorum error dignissimos ullam saepe culpa iusto unde asperiores voluptates
-    eum. Saepe, quia?
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem repellendus
-    incidunt dolorem blanditiis aspernatur cum laborum, quaerat totam saepe
-    magnam, facere voluptate veniam, tempora nobis qui asperiores nihil quos
-    excepturi voluptatem. Consequatur sed quisquam corporis numquam, tenetur
-    dolorum error dignissimos ullam saepe culpa iusto unde asperiores voluptates
-    eum. Saepe, quia?    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem repellendus
-    incidunt dolorem blanditiis aspernatur cum laborum, quaerat totam saepe
-    magnam, facere voluptate veniam, tempora nobis qui asperiores nihil quos
-    excepturi voluptatem. Consequatur sed quisquam corporis numquam, tenetur
-    dolorum error dignissimos ullam saepe culpa iusto unde asperiores voluptates
-    eum. Saepe, quia?    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem repellendus
-    incidunt dolorem blanditiis aspernatur cum laborum, quaerat totam saepe
-    magnam, facere voluptate veniam, tempora nobis qui asperiores nihil quos
-    excepturi voluptatem. Consequatur sed quisquam corporis numquam, tenetur
-    dolorum error dignissimos ullam saepe culpa iusto unde asperiores voluptates
-    eum. Saepe, quia?    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem repellendus
-    incidunt dolorem blanditiis aspernatur cum laborum, quaerat totam saepe
-    magnam, facere voluptate veniam, tempora nobis qui asperiores nihil quos
-    excepturi voluptatem. Consequatur sed quisquam corporis numquam, tenetur
-    dolorum error dignissimos ullam saepe culpa iusto unde asperiores voluptates
-    eum. Saepe, quia?
+    <Welcome :content="welcomeSection" />
+    <Menus :categories="menuCategories" />
   </b-container>
 </template>
 
 <script>
-import Tutorial from "~/components/Tutorial.vue";
+import Welcome from "~/components/Welcome.vue";
+import Menus from "~/components/Menus.vue";
 export default {
   name: "IndexPage",
   components: {
-    Tutorial,
+    Welcome,
+    Menus,
+  },
+  data() {
+    return {
+      welcomeSection: {},
+      menus: [],
+      menuCategories: [],
+    };
+  },
+  created() {
+    this.getWelcomeSectionData();
+    this.getMenuData();
+  },
+  methods: {
+    async getWelcomeSectionData() {
+      const qs = require("qs");
+      const query = qs.stringify({
+        "outlet.name": "hanesa",
+      });
+
+      this.welcomeSection = await this.$strapi.find(
+        `welcome-section?_locale=${this.$i18n.locale}&${query}`
+      );
+    },
+    async getMenuData() {
+      const qs = require("qs");
+      const query = qs.stringify({
+        "outlet.name": "hanesa",
+      });
+
+      this.menuCategories = await this.$strapi.find(
+      `categories?${query}`
+      );
+    },
   },
 };
 </script>
