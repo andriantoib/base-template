@@ -1,8 +1,8 @@
 <template>
-  <b-container>
+  <div>
     <Welcome :content="welcomeSection" />
-    <Menus :categories="menuCategories" />
-  </b-container>
+    <Menus :categories="menuCategories"  />
+  </div>
 </template>
 
 <script>

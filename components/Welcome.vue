@@ -1,5 +1,5 @@
 <template>
-  <div class="welcome">
+  <div class="welcome container">
     <div class="welcome__text">
       <h2>{{ content.title }}</h2>
       <p>{{ content.subtitle }}</p>
